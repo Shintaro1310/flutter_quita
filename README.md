@@ -59,6 +59,9 @@ lib
     - article_detail
   - main.dart 
 
+# 参考
+1.準備:https://qiita.com/koki_develop/items/57f86a1abc332ed2185d
+
 
 
 
