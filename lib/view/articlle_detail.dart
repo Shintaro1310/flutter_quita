@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-class ArticleList extends StatefulWidget {
-  const ArticleList({super.key, required this.title});
+class ArticleDetail extends StatefulWidget {
+  const ArticleDetail({super.key, required this.title});
 
   final String title;
 
   @override
-  State<ArticleList> createState() => _ArticleListState();
+  State<ArticleDetail> createState() => _ArticleDetailState();
 }
 
-class _ArticleListState extends State<ArticleList> {
+class _ArticleDetailState extends State<ArticleDetail> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -36,14 +35,13 @@ class _ArticleListState extends State<ArticleList> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            ElevatedButton(
-              onPressed: () {
-                context.go("/article_detail");
-              },
-              child: Text("hello"),
-            )
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
       ),
     );
   }
