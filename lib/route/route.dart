@@ -8,15 +8,13 @@ final GoRouter router = GoRouter(routes: <RouteBase>[
   GoRoute(
     path: "/",
     builder: (BuildContext context, GoRouterState state) {
-      return const ArticleList(
-        title: 'Article',
-      );
+      return ArticleList();
     },
     routes: <RouteBase>[
       GoRoute(
         path: 'article_detail',
         builder: (BuildContext context, GoRouterState state) {
-          return const ArticleDetail(title: "article_detail");
+          return ArticleDetail();
         },
       ),
     ],
