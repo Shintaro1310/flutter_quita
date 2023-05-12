@@ -13,7 +13,7 @@ class _ArticleListClient implements ArticleListClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://qiita.com/api/v2/';
+    baseUrl ??= 'https://qiita.com/api/v2';
   }
 
   final Dio _dio;
@@ -21,13 +21,13 @@ class _ArticleListClient implements ArticleListClient {
   String? baseUrl;
 
   @override
-  Future<ArticleListResponse> fetchArticleList() async {
+  Future<List<ArticleListResponse>?> fetchArticleList() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ArticleListResponse>(Options(
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<ArticleListResponse>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -39,7 +39,10 @@ class _ArticleListClient implements ArticleListClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ArticleListResponse.fromJson(_result.data!);
+    var value = _result.data
+        ?.map((dynamic i) =>
+            ArticleListResponse.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 

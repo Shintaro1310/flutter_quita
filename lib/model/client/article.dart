@@ -4,10 +4,10 @@ import 'package:dio/dio.dart';
 
 part 'article.g.dart';
 
-@RestApi(baseUrl: "https://qiita.com/api/v2/")
+@RestApi(baseUrl: "https://qiita.com/api/v2")
 abstract class ArticleListClient {
   factory ArticleListClient(Dio dio, {String baseUrl}) = _ArticleListClient;
 
   @GET("/items")
-  Future<ArticleListResponse> fetchArticleList();
+  Future<List<ArticleListResponse>?> fetchArticleList();
 }

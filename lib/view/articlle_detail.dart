@@ -6,7 +6,7 @@ class ArticleDetail extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Quita記事一覧"),
+        title: const Text("Quita記事詳細"),
       ),
       body: Center(
         child: Column(

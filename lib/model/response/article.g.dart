@@ -9,28 +9,29 @@ part of 'article.dart';
 _$_ArticleListResponse _$$_ArticleListResponseFromJson(
         Map<String, dynamic> json) =>
     _$_ArticleListResponse(
-      title: json['title'] as String,
-      name: UserResponse.fromJson(json['name'] as Map<String, dynamic>),
-      profile_image_url: UserResponse.fromJson(
-          json['profile_image_url'] as Map<String, dynamic>),
-      likes_count: json['likes_count'] as int,
-      created_at: json['created_at'] as String,
+      title: json['title'] as String?,
+      user: json['user'] == null
+          ? null
+          : UserResponse.fromJson(json['user'] as Map<String, dynamic>),
+      likes_count: json['likes_count'] as int?,
+      created_at: json['created_at'] as String?,
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$$_ArticleListResponseToJson(
         _$_ArticleListResponse instance) =>
     <String, dynamic>{
       'title': instance.title,
-      'name': instance.name,
-      'profile_image_url': instance.profile_image_url,
+      'user': instance.user,
       'likes_count': instance.likes_count,
       'created_at': instance.created_at,
+      'url': instance.url,
     };
 
 _$_UserResponse _$$_UserResponseFromJson(Map<String, dynamic> json) =>
     _$_UserResponse(
-      name: json['name'] as String,
-      profile_image_url: json['profile_image_url'] as String,
+      name: json['name'] as String?,
+      profile_image_url: json['profile_image_url'] as String?,
     );
 
 Map<String, dynamic> _$$_UserResponseToJson(_$_UserResponse instance) =>
