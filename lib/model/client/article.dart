@@ -1,4 +1,4 @@
-import 'package:flutter_application_1/api/response/article.dart';
+import 'package:flutter_application_1/model/response/article.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
@@ -9,5 +9,5 @@ abstract class ArticleListClient {
   factory ArticleListClient(Dio dio, {String baseUrl}) = _ArticleListClient;
 
   @GET("/items")
-  Future<ArticleListResponse> getTasks();
+  Future<ArticleListResponse> fetchArticleList();
 }
