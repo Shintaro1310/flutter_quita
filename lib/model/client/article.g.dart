@@ -21,7 +21,7 @@ class _ArticleListClient implements ArticleListClient {
   String? baseUrl;
 
   @override
-  Future<ArticleListResponse> getTasks() async {
+  Future<ArticleListResponse> fetchArticleList() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

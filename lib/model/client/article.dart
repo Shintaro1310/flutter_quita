@@ -9,5 +9,5 @@ abstract class ArticleListClient {
   factory ArticleListClient(Dio dio, {String baseUrl}) = _ArticleListClient;
 
   @GET("/items")
-  Future<ArticleListResponse> getTasks();
+  Future<ArticleListResponse> fetchArticleList();
 }
