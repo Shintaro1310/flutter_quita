@@ -20,11 +20,11 @@ ArticleListResponse _$ArticleListResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ArticleListResponse {
-  String get title => throw _privateConstructorUsedError;
-  UserResponse get name => throw _privateConstructorUsedError;
-  UserResponse get profile_image_url => throw _privateConstructorUsedError;
-  int get likes_count => throw _privateConstructorUsedError;
-  String get created_at => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  UserResponse? get user => throw _privateConstructorUsedError;
+  int? get likes_count => throw _privateConstructorUsedError;
+  String? get created_at => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,14 +39,13 @@ abstract class $ArticleListResponseCopyWith<$Res> {
       _$ArticleListResponseCopyWithImpl<$Res, ArticleListResponse>;
   @useResult
   $Res call(
-      {String title,
-      UserResponse name,
-      UserResponse profile_image_url,
-      int likes_count,
-      String created_at});
+      {String? title,
+      UserResponse? user,
+      int? likes_count,
+      String? created_at,
+      String? url});
 
-  $UserResponseCopyWith<$Res> get name;
-  $UserResponseCopyWith<$Res> get profile_image_url;
+  $UserResponseCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -62,49 +61,45 @@ class _$ArticleListResponseCopyWithImpl<$Res, $Val extends ArticleListResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
-    Object? name = null,
-    Object? profile_image_url = null,
-    Object? likes_count = null,
-    Object? created_at = null,
+    Object? title = freezed,
+    Object? user = freezed,
+    Object? likes_count = freezed,
+    Object? created_at = freezed,
+    Object? url = freezed,
   }) {
     return _then(_value.copyWith(
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as UserResponse,
-      profile_image_url: null == profile_image_url
-          ? _value.profile_image_url
-          : profile_image_url // ignore: cast_nullable_to_non_nullable
-              as UserResponse,
-      likes_count: null == likes_count
+              as String?,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserResponse?,
+      likes_count: freezed == likes_count
           ? _value.likes_count
           : likes_count // ignore: cast_nullable_to_non_nullable
-              as int,
-      created_at: null == created_at
+              as int?,
+      created_at: freezed == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UserResponseCopyWith<$Res> get name {
-    return $UserResponseCopyWith<$Res>(_value.name, (value) {
-      return _then(_value.copyWith(name: value) as $Val);
-    });
-  }
+  $UserResponseCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
 
-  @override
-  @pragma('vm:prefer-inline')
-  $UserResponseCopyWith<$Res> get profile_image_url {
-    return $UserResponseCopyWith<$Res>(_value.profile_image_url, (value) {
-      return _then(_value.copyWith(profile_image_url: value) as $Val);
+    return $UserResponseCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
     });
   }
 }
@@ -118,16 +113,14 @@ abstract class _$$_ArticleListResponseCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String title,
-      UserResponse name,
-      UserResponse profile_image_url,
-      int likes_count,
-      String created_at});
+      {String? title,
+      UserResponse? user,
+      int? likes_count,
+      String? created_at,
+      String? url});
 
   @override
-  $UserResponseCopyWith<$Res> get name;
-  @override
-  $UserResponseCopyWith<$Res> get profile_image_url;
+  $UserResponseCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -141,33 +134,33 @@ class __$$_ArticleListResponseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
-    Object? name = null,
-    Object? profile_image_url = null,
-    Object? likes_count = null,
-    Object? created_at = null,
+    Object? title = freezed,
+    Object? user = freezed,
+    Object? likes_count = freezed,
+    Object? created_at = freezed,
+    Object? url = freezed,
   }) {
     return _then(_$_ArticleListResponse(
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as UserResponse,
-      profile_image_url: null == profile_image_url
-          ? _value.profile_image_url
-          : profile_image_url // ignore: cast_nullable_to_non_nullable
-              as UserResponse,
-      likes_count: null == likes_count
+              as String?,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserResponse?,
+      likes_count: freezed == likes_count
           ? _value.likes_count
           : likes_count // ignore: cast_nullable_to_non_nullable
-              as int,
-      created_at: null == created_at
+              as int?,
+      created_at: freezed == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -176,29 +169,25 @@ class __$$_ArticleListResponseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ArticleListResponse implements _ArticleListResponse {
   _$_ArticleListResponse(
-      {required this.title,
-      required this.name,
-      required this.profile_image_url,
-      required this.likes_count,
-      required this.created_at});
+      {this.title, this.user, this.likes_count, this.created_at, this.url});
 
   factory _$_ArticleListResponse.fromJson(Map<String, dynamic> json) =>
       _$$_ArticleListResponseFromJson(json);
 
   @override
-  final String title;
+  final String? title;
   @override
-  final UserResponse name;
+  final UserResponse? user;
   @override
-  final UserResponse profile_image_url;
+  final int? likes_count;
   @override
-  final int likes_count;
+  final String? created_at;
   @override
-  final String created_at;
+  final String? url;
 
   @override
   String toString() {
-    return 'ArticleListResponse(title: $title, name: $name, profile_image_url: $profile_image_url, likes_count: $likes_count, created_at: $created_at)';
+    return 'ArticleListResponse(title: $title, user: $user, likes_count: $likes_count, created_at: $created_at, url: $url)';
   }
 
   @override
@@ -207,19 +196,18 @@ class _$_ArticleListResponse implements _ArticleListResponse {
         (other.runtimeType == runtimeType &&
             other is _$_ArticleListResponse &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.profile_image_url, profile_image_url) ||
-                other.profile_image_url == profile_image_url) &&
+            (identical(other.user, user) || other.user == user) &&
             (identical(other.likes_count, likes_count) ||
                 other.likes_count == likes_count) &&
             (identical(other.created_at, created_at) ||
-                other.created_at == created_at));
+                other.created_at == created_at) &&
+            (identical(other.url, url) || other.url == url));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, title, name, profile_image_url, likes_count, created_at);
+  int get hashCode =>
+      Object.hash(runtimeType, title, user, likes_count, created_at, url);
 
   @JsonKey(ignore: true)
   @override
@@ -238,25 +226,25 @@ class _$_ArticleListResponse implements _ArticleListResponse {
 
 abstract class _ArticleListResponse implements ArticleListResponse {
   factory _ArticleListResponse(
-      {required final String title,
-      required final UserResponse name,
-      required final UserResponse profile_image_url,
-      required final int likes_count,
-      required final String created_at}) = _$_ArticleListResponse;
+      {final String? title,
+      final UserResponse? user,
+      final int? likes_count,
+      final String? created_at,
+      final String? url}) = _$_ArticleListResponse;
 
   factory _ArticleListResponse.fromJson(Map<String, dynamic> json) =
       _$_ArticleListResponse.fromJson;
 
   @override
-  String get title;
+  String? get title;
   @override
-  UserResponse get name;
+  UserResponse? get user;
   @override
-  UserResponse get profile_image_url;
+  int? get likes_count;
   @override
-  int get likes_count;
+  String? get created_at;
   @override
-  String get created_at;
+  String? get url;
   @override
   @JsonKey(ignore: true)
   _$$_ArticleListResponseCopyWith<_$_ArticleListResponse> get copyWith =>
@@ -269,8 +257,8 @@ UserResponse _$UserResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserResponse {
-  String get name => throw _privateConstructorUsedError;
-  String get profile_image_url => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get profile_image_url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -284,7 +272,7 @@ abstract class $UserResponseCopyWith<$Res> {
           UserResponse value, $Res Function(UserResponse) then) =
       _$UserResponseCopyWithImpl<$Res, UserResponse>;
   @useResult
-  $Res call({String name, String profile_image_url});
+  $Res call({String? name, String? profile_image_url});
 }
 
 /// @nodoc
@@ -300,18 +288,18 @@ class _$UserResponseCopyWithImpl<$Res, $Val extends UserResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? profile_image_url = null,
+    Object? name = freezed,
+    Object? profile_image_url = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      profile_image_url: null == profile_image_url
+              as String?,
+      profile_image_url: freezed == profile_image_url
           ? _value.profile_image_url
           : profile_image_url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -324,7 +312,7 @@ abstract class _$$_UserResponseCopyWith<$Res>
       __$$_UserResponseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String profile_image_url});
+  $Res call({String? name, String? profile_image_url});
 }
 
 /// @nodoc
@@ -338,18 +326,18 @@ class __$$_UserResponseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? profile_image_url = null,
+    Object? name = freezed,
+    Object? profile_image_url = freezed,
   }) {
     return _then(_$_UserResponse(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      profile_image_url: null == profile_image_url
+              as String?,
+      profile_image_url: freezed == profile_image_url
           ? _value.profile_image_url
           : profile_image_url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -357,15 +345,15 @@ class __$$_UserResponseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UserResponse implements _UserResponse {
-  _$_UserResponse({required this.name, required this.profile_image_url});
+  _$_UserResponse({this.name, this.profile_image_url});
 
   factory _$_UserResponse.fromJson(Map<String, dynamic> json) =>
       _$$_UserResponseFromJson(json);
 
   @override
-  final String name;
+  final String? name;
   @override
-  final String profile_image_url;
+  final String? profile_image_url;
 
   @override
   String toString() {
@@ -401,17 +389,16 @@ class _$_UserResponse implements _UserResponse {
 }
 
 abstract class _UserResponse implements UserResponse {
-  factory _UserResponse(
-      {required final String name,
-      required final String profile_image_url}) = _$_UserResponse;
+  factory _UserResponse({final String? name, final String? profile_image_url}) =
+      _$_UserResponse;
 
   factory _UserResponse.fromJson(Map<String, dynamic> json) =
       _$_UserResponse.fromJson;
 
   @override
-  String get name;
+  String? get name;
   @override
-  String get profile_image_url;
+  String? get profile_image_url;
   @override
   @JsonKey(ignore: true)
   _$$_UserResponseCopyWith<_$_UserResponse> get copyWith =>

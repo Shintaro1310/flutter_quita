@@ -6,7 +6,8 @@ final articleListRepositoryProvider = Provider((ref) {
   return ArticleListRepository();
 });
 
-final articleListProvider = FutureProvider<ArticleListResponse>((ref) async {
+final articleListProvider =
+    FutureProvider<List<ArticleListResponse>>((ref) async {
   final repository = ref.watch(articleListRepositoryProvider);
   return await repository.fetchArticleList();
 });
