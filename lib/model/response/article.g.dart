@@ -9,13 +9,11 @@ part of 'article.dart';
 _$_ArticleListResponse _$$_ArticleListResponseFromJson(
         Map<String, dynamic> json) =>
     _$_ArticleListResponse(
-      title: json['title'] as String?,
-      user: json['user'] == null
-          ? null
-          : UserResponse.fromJson(json['user'] as Map<String, dynamic>),
-      likes_count: json['likes_count'] as int?,
-      created_at: json['created_at'] as String?,
-      url: json['url'] as String?,
+      title: json['title'] as String,
+      user: UserResponse.fromJson(json['user'] as Map<String, dynamic>),
+      likes_count: json['likes_count'] as int,
+      created_at: json['created_at'] as String,
+      url: json['url'] as String,
     );
 
 Map<String, dynamic> _$$_ArticleListResponseToJson(
@@ -30,8 +28,8 @@ Map<String, dynamic> _$$_ArticleListResponseToJson(
 
 _$_UserResponse _$$_UserResponseFromJson(Map<String, dynamic> json) =>
     _$_UserResponse(
-      name: json['name'] as String?,
-      profile_image_url: json['profile_image_url'] as String?,
+      name: json['name'] as String,
+      profile_image_url: json['profile_image_url'] as String,
     );
 
 Map<String, dynamic> _$$_UserResponseToJson(_$_UserResponse instance) =>

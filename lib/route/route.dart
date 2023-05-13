@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/view/articlle_detail.dart';
+import 'package:flutter_application_1/view/article_detail.dart';
 
 import 'package:flutter_application_1/view/article_list.dart';
 import 'package:go_router/go_router.dart';
