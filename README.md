@@ -64,7 +64,7 @@ lib
  modelフォルダはMVVMのmodelの部分を担うフォルダで、主にapi通信周りのコードが入っています。   
  responseではfreezedを用いて書くことで、自動生成してくれるのでコードを書く量を減らし、人為的なミスを減らせるようになっています。 
  clientもresponseと同じように、retrofitを用いることでapiクライアントの自動生成を行い、先に述べたようなメリットを得られます。   
- また、apiクライアントとの通信にはretrofitと相性の良いdioを使っています。   
+ また、apiとの通信にはretrofitと相性の良いdioを使っています。   
  #### repository
  repositoryフォルダは、apiクライアントとviewmodelを繋ぐレポジトリとしての機能を担います。
  #### route
@@ -81,7 +81,7 @@ lib
  記事一覧画面では、取得した分の数のカードを作成されるようにしています。  
  記事詳細画面では、記事一覧から受け取ったurlをwebviewを用いて表示しています。
  #### main.dart
- main.dartでMyAppをProviderScopeで囲うようにしています。(Riverpod)を使うため。
+ main.dartでMyAppをProviderScopeで囲うようにしています。(Riverpodを使うため。)
  
 
 ## 参考
