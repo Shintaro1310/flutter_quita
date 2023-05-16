@@ -12,94 +12,105 @@ class ArticleList extends ConsumerWidget {
     final articleListState = ref.watch(articleListProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Quita記事一覧"),
-      ),
-      body: articleListState.when(
-        data: (article) {
-          return SingleChildScrollView(
-              child: Column(children: [
-            for (int i = 0; i < article.length; i++) ...{
-              InkWell(
-                onTap: () {
-                  ref.watch(urlProvider.notifier).state = article[i].url;
-                  context.go("/article_detail");
-                },
-                child: Card(
-                  child: Column(
-                    children: [
-                      ListTile(
-                        title: Text(
-                          article[i].title,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        subtitle: Text("作成日:${article[i].created_at}"),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        appBar: AppBar(
+          title: const Text("Quita記事一覧"),
+        ),
+        body: Container(
+            child: RefreshIndicator(
+          onRefresh: () async {
+            await ref.refresh(articleListProvider);
+          },
+          child: articleListState.when(
+            data: (article) {
+              return ListView.builder(
+                itemCount: article.length,
+                itemBuilder: (context, index) {
+                  final currentArticle = article[index];
+
+                  return InkWell(
+                    onTap: () {
+                      ref.watch(urlProvider.notifier).state =
+                          currentArticle.url;
+                      context.go("/article_detail");
+                    },
+                    child: Card(
+                      child: Column(
                         children: [
+                          ListTile(
+                            title: Text(
+                              currentArticle.title,
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Text("作成日:${currentArticle.created_at}"),
+                          ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: CircleAvatar(
-                                  radius: 18,
-                                  backgroundImage: NetworkImage(
-                                    article[i].user.profile_image_url,
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: CircleAvatar(
+                                      radius: 18,
+                                      backgroundImage: NetworkImage(
+                                        currentArticle.user.profile_image_url,
+                                      ),
+                                    ),
                                   ),
+                                  (currentArticle.user.name == "")
+                                      ? const Text(
+                                          "名無しさん",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        )
+                                      : SizedBox(
+                                          width: 150,
+                                          child: Text(
+                                            currentArticle.user.name,
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: const TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                ],
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.favorite,
+                                      color: Colors.redAccent,
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(currentArticle.likes_count.toString()),
+                                  ],
                                 ),
                               ),
-                              (article[i].user.name == "")
-                                  ? const Text(
-                                      "名無しさん",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    )
-                                  : Text(
-                                      article[i].user.name,
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    ),
                             ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: Row(
-                              children: [
-                                const Icon(
-                                  Icons.favorite,
-                                  color: Colors.redAccent,
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                Text(article[i].likes_count.toString()),
-                              ],
-                            ),
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                ),
-              )
+                    ),
+                  );
+                },
+              );
             },
-            const SizedBox(
-              height: 40,
-            ),
-          ]));
-        },
-        loading: () {
-          return const Center(child: CircularProgressIndicator());
-        },
-        error: (error, _) {
-          return const Center(
-              child: Text(
-            "予期せぬエラーが起きました",
-            style: TextStyle(fontSize: 17),
-          ));
-        },
-      ),
-    );
+            loading: () {
+              return const Center(child: CircularProgressIndicator());
+            },
+            error: (error, _) {
+              return const Center(
+                  child: Text(
+                "予期せぬエラーが起きました",
+                style: TextStyle(fontSize: 17),
+              ));
+            },
+          ),
+        )));
   }
 }
