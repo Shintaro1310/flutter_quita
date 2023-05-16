@@ -25,6 +25,7 @@ mixin _$ArticleListResponse {
   int get likes_count => throw _privateConstructorUsedError;
   String get created_at => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,8 @@ abstract class $ArticleListResponseCopyWith<$Res> {
       UserResponse user,
       int likes_count,
       String created_at,
-      String url});
+      String url,
+      String id});
 
   $UserResponseCopyWith<$Res> get user;
 }
@@ -66,6 +68,7 @@ class _$ArticleListResponseCopyWithImpl<$Res, $Val extends ArticleListResponse>
     Object? likes_count = null,
     Object? created_at = null,
     Object? url = null,
+    Object? id = null,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -87,6 +90,10 @@ class _$ArticleListResponseCopyWithImpl<$Res, $Val extends ArticleListResponse>
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -113,7 +120,8 @@ abstract class _$$_ArticleListResponseCopyWith<$Res>
       UserResponse user,
       int likes_count,
       String created_at,
-      String url});
+      String url,
+      String id});
 
   @override
   $UserResponseCopyWith<$Res> get user;
@@ -135,6 +143,7 @@ class __$$_ArticleListResponseCopyWithImpl<$Res>
     Object? likes_count = null,
     Object? created_at = null,
     Object? url = null,
+    Object? id = null,
   }) {
     return _then(_$_ArticleListResponse(
       title: null == title
@@ -157,6 +166,10 @@ class __$$_ArticleListResponseCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -169,7 +182,8 @@ class _$_ArticleListResponse implements _ArticleListResponse {
       required this.user,
       required this.likes_count,
       required this.created_at,
-      required this.url});
+      required this.url,
+      required this.id});
 
   factory _$_ArticleListResponse.fromJson(Map<String, dynamic> json) =>
       _$$_ArticleListResponseFromJson(json);
@@ -184,10 +198,12 @@ class _$_ArticleListResponse implements _ArticleListResponse {
   final String created_at;
   @override
   final String url;
+  @override
+  final String id;
 
   @override
   String toString() {
-    return 'ArticleListResponse(title: $title, user: $user, likes_count: $likes_count, created_at: $created_at, url: $url)';
+    return 'ArticleListResponse(title: $title, user: $user, likes_count: $likes_count, created_at: $created_at, url: $url, id: $id)';
   }
 
   @override
@@ -201,13 +217,14 @@ class _$_ArticleListResponse implements _ArticleListResponse {
                 other.likes_count == likes_count) &&
             (identical(other.created_at, created_at) ||
                 other.created_at == created_at) &&
-            (identical(other.url, url) || other.url == url));
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, title, user, likes_count, created_at, url);
+      Object.hash(runtimeType, title, user, likes_count, created_at, url, id);
 
   @JsonKey(ignore: true)
   @override
@@ -230,7 +247,8 @@ abstract class _ArticleListResponse implements ArticleListResponse {
       required final UserResponse user,
       required final int likes_count,
       required final String created_at,
-      required final String url}) = _$_ArticleListResponse;
+      required final String url,
+      required final String id}) = _$_ArticleListResponse;
 
   factory _ArticleListResponse.fromJson(Map<String, dynamic> json) =
       _$_ArticleListResponse.fromJson;
@@ -245,6 +263,8 @@ abstract class _ArticleListResponse implements ArticleListResponse {
   String get created_at;
   @override
   String get url;
+  @override
+  String get id;
   @override
   @JsonKey(ignore: true)
   _$$_ArticleListResponseCopyWith<_$_ArticleListResponse> get copyWith =>

@@ -14,6 +14,7 @@ _$_ArticleListResponse _$$_ArticleListResponseFromJson(
       likes_count: json['likes_count'] as int,
       created_at: json['created_at'] as String,
       url: json['url'] as String,
+      id: json['id'] as String,
     );
 
 Map<String, dynamic> _$$_ArticleListResponseToJson(
@@ -24,6 +25,7 @@ Map<String, dynamic> _$$_ArticleListResponseToJson(
       'likes_count': instance.likes_count,
       'created_at': instance.created_at,
       'url': instance.url,
+      'id': instance.id,
     };
 
 _$_UserResponse _$$_UserResponseFromJson(Map<String, dynamic> json) =>
