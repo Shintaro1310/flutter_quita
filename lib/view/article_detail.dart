@@ -9,6 +9,7 @@ class ArticleDetail extends ConsumerWidget {
   ArticleDetail({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final isLoading = ref.watch(isLoadingProvider.notifier).state;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Quita記事詳細"),
@@ -19,7 +20,16 @@ class ArticleDetail extends ConsumerWidget {
             key: _key,
             initialUrl: ref.watch(urlProvider.notifier).state,
             javascriptMode: JavascriptMode.unrestricted,
+            onPageStarted: (_) {
+              ref.watch(isLoadingProvider.notifier).state = true;
+            },
+            onPageFinished: (_) {
+              ref.watch(isLoadingProvider.notifier).state = false;
+            },
           ),
+          isLoading
+              ? const Center(child: CircularProgressIndicator())
+              : Container(),
         ],
       ),
     );
