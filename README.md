@@ -15,7 +15,7 @@
 4.いいね数  
 5.記事作成日  
 
-カードを押すとurlを渡して、記事をflutter webで表示できるようにする。   
+カードを押すときに、記事idを渡して、記事をflutter webで表示できるようにする。   
 
 
 ## 使用技術
@@ -26,6 +26,8 @@
 - repository
   - dio 
 - viewModel
+  - riverpod
+- state
   - riverpod
 - view
   - SingleChildScrollView
@@ -45,19 +47,27 @@ lib
   - model
     - response
       - article.dart
+      - article.freezed.dart
+      - article.g.dart
+      - article_detail.dart
+      - article_detail.freezed.dart
+      - article_detail.g.dart
     - client
       - article.dart   
+      - article.g.dart
   - repository
       - article_list.dart
+      - article_detail.dart
   - route
-    - article.dart
+    - route.dart
   - state
     - article_list.dart
   - viewmodel
-    - article.dart
+    - article_list.dart
+    -article_detail.dart
   - view
     - article_list.dart
-    - article_detail
+    - article_detail.dart
   - main.dart 
  ### 説明
  #### model
@@ -72,14 +82,14 @@ lib
  flutterにおいて主流になりつつある、宣言的なルーティングを行えるgo_routerを使って実装しています。   
  #### state
  stateフォルダは、アプリ上で使う要素の状態を管理するフォルダです。  
- ここにはapi通信の状態管理は入れておらず、アプリ内で使う値（遷移時に渡すurlなど)の状態を管理しています。
+ ここにはapi通信の状態管理は入れておらず、アプリ内で使う値（記事id)の状態を管理しています。
  
  #### viewmodel
  viewmodelフォルダは、MVVMのviewmodelの部分を担うフォルダで、api通信周りの状態管理をriverpodで行なっています。
  #### view
  viewフォルダはMVVMのview部分を担うフォルダで、UIの表示を担います。  
- 記事一覧画面では、取得した分の数のカードを作成されるようにしています。   また、スクロールした際に画面を更新して新規の記事一覧を取得できるようにしています。   
- 記事詳細画面では、記事一覧から受け取ったurlをwebviewを用いて表示しています。
+ 記事一覧画面では、取得した分の数のカードを作成されるようにしています。   また、スクロールした際に画面を更新して新規の記事一覧を取得できるようにしています。riverpodのAsyncValueを使い、エラーハンドリングとロード処理を書いています。   
+ 記事詳細画面では、記事一覧から受け取った記事idから記事詳細apiを呼び出しriverpodのAsyncValueを使い、エラーハンドリングとロード処理を容易にしています。
  #### main.dart
  main.dartでMyAppをProviderScopeで囲うようにしています。(Riverpod)を使うため。
  

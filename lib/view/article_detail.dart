@@ -19,14 +19,10 @@ class ArticleDetail extends ConsumerWidget {
         ),
         body: articleDetailState.when(
           data: (article) {
-            Stack(
-              children: <Widget>[
-                WebView(
-                  key: _key,
-                  initialUrl: article.url,
-                  javascriptMode: JavascriptMode.unrestricted,
-                ),
-              ],
+            return WebView(
+              key: _key,
+              initialUrl: article.url,
+              javascriptMode: JavascriptMode.unrestricted,
             );
           },
           loading: () {
