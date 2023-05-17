@@ -94,8 +94,9 @@ lib
  main.dartでMyAppをProviderScopeで囲うようにしています。(Riverpodを使うため。)
  
 ## 完成動作画面
-![Simulator Screen Shot - iPhone 13 - 2023-05-17 at 14 56 51](https://github.com/Shintaro1310/flutter_quita/assets/102226429/8c06213e-3f63-46eb-ba1a-982bd16ec276)
-![Simulator Screen Shot - iPhone 13 - 2023-05-17 at 14 56 57](https://github.com/Shintaro1310/flutter_quita/assets/102226429/4275b5a7-b94f-437c-bca1-1eee6062a11b)
+![sample1](https://github.com/Shintaro1310/flutter_quita/assets/102226429/f54e7e3b-767f-4e9f-bed0-a369faad4542)
+![sample2](https://github.com/Shintaro1310/flutter_quita/assets/102226429/c9331704-fd4e-4c56-8f9c-af3b6f4d1a51)
+
 
 
 ## 参考
