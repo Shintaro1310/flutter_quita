@@ -1,4 +1,5 @@
 import 'package:flutter_application_1/model/response/article.dart';
+import 'package:flutter_application_1/model/response/article_detail.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
@@ -9,6 +10,8 @@ abstract class ArticleListClient {
   factory ArticleListClient(Dio dio, {String baseUrl}) = _ArticleListClient;
 
   @GET("/items")
-  @Header('Authorization: Bearer 7c91f50ab2b5c93e5152a43e35d10399ce64f569')
   Future<List<ArticleListResponse>> fetchArticleList();
+  @GET("/items/{article_id}")
+  Future<ArticleDetailResponse> fetchArticleDetail(
+      @Path("article_id") String articleId);
 }

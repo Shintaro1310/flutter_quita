@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/state/article_detail.dart';
+import 'package:flutter_application_1/state/article_list.dart';
 import 'package:flutter_application_1/view_model/artilcle_list.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -13,7 +13,7 @@ class ArticleList extends ConsumerWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Quita記事一覧"),
+          title: const Text("Qiita記事一覧"),
         ),
         body: Container(
             child: RefreshIndicator(
@@ -29,8 +29,8 @@ class ArticleList extends ConsumerWidget {
 
                   return InkWell(
                     onTap: () {
-                      ref.watch(urlProvider.notifier).state =
-                          currentArticle.url;
+                      ref.watch(articleIdProvider.notifier).state =
+                          currentArticle.id;
                       context.go("/article_detail");
                     },
                     child: Card(
